@@ -1,0 +1,12 @@
+# ninja log v6
+6	1368	7623723457917222	CMakeFiles/production_scheduling.dir/main.cpp.obj	a395d06bd7aa0a9e
+1740	2927	7623746028562166	production_scheduling.exe	267438932e7f164f
+30	5424	7622607756388813	CMakeFiles/production_scheduling.dir/Job.cpp.obj	1c6e51f0338951f6
+7	1238	7623688531263526	CMakeFiles/production_scheduling.dir/Schedule.cpp.obj	710a780dcb634a4c
+9	2334	7623721916058900	CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj	a302f1fa6fa3676b
+35	5390	7622607756438744	CMakeFiles/production_scheduling.dir/Machine.cpp.obj	3ec3f7b1f285f294
+24	5420	7622607756338770	CMakeFiles/production_scheduling.dir/Order.cpp.obj	d40db19edfa5c6c2
+6	1740	7623746011228283	CMakeFiles/production_scheduling.dir/DataProc.cpp.obj	52dfb0022ddf411f
+20	1311	7622608345129499	CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj	c5d393457acf94aa
+10	4083	7629719242192451	CMakeFiles/production_scheduling.dir/main.cpp.obj	a395d06bd7aa0a9e
+4084	6130	7629719282926257	production_scheduling.exe	267438932e7f164f
