@@ -12,7 +12,7 @@
 
 void Init(std::vector<Machine> &machines, std::vector<Job> &jobs, std::vector<Order> &orders) {
     // // 重定向输入流为当前目录下的input.txt文件,使得使用std::cin读取文件内容，使用std::cout输出到控制台
-    std::string inputFilePath = "E:\\CLion\\project\\production_scheduling\\input.txt";
+    std::string inputFilePath = "C:\\Users\\Litbug\\Desktop\\production_scheduling\\input.txt";
     std::ifstream in(inputFilePath);
     std::cin.rdbuf(in.rdbuf());
     if (!in) {
@@ -156,97 +156,108 @@ int GetProcessTime(const std::vector<Job> &jobs, const int machine_id, const int
     return 0;
 }
 
-std::vector<std::vector<int>> ScheduleItemsToGraph(Schedule &schedule, std::vector<Schedule_item> &schedule_items, const std::vector<Job> &jobs, const std::vector<std::string> &jobList, const bool flag) {
-    std::vector<std::string> processList;  // 用于记录每个工序列表
-    processList.push_back("start");
-    for (auto schedule_item: schedule_items) {
-        for (auto [job_id, process_id]: schedule_item.schedule_process) {
-            processList.push_back(std::to_string(job_id) + "-" + std::to_string(process_id));
+std::vector<std::vector<int>> ScheduleItemsToGraph(Schedule &schedule, std::vector<Schedule_item> &schedule_items,
+                                                   const std::vector<Job> &jobs, const std::vector<std::string> &jobList,
+                                                   bool flag) {
+    std::vector<std::string> processList;
+    processList.push_back("start");  // 添加起始节点
+
+    for (auto &schedule_item : schedule_items) {
+        for (auto &proc : schedule_item.schedule_process) {
+            processList.push_back(std::to_string(proc.job_id) + "-" + std::to_string(proc.process_id));
         }
     }
-    processList.push_back("end");
-    const int processCount = processList.size();
 
-    // 使用邻接矩阵记录工序之间的关系
+    processList.push_back("end");  // 添加结束节点
+    int processCount = processList.size();
+
+    // 生成邻接矩阵，初始化为 -1
     std::vector<std::vector<int>> graph(processCount, std::vector<int>(processCount, -1));
-    int job_id = 0, process_id = 0, index1 = 0, index2=0;
-    for (auto schedule_item: schedule_items) {
-        for (int i = 0; i<schedule_item.schedule_process.size(); i++) {
 
-            // 在processList中查找第i项的job_id-process_id的索引
-            job_id = schedule_item.schedule_process[i].job_id;
-            process_id = schedule_item.schedule_process[i].process_id;
-            for (int i1 = 0; i1<processList.size(); i1++) {
-                if (processList[i1] == std::to_string(job_id) + "-" + std::to_string(process_id)) {
-                    index1 = i1;
+    int index1 = 0, index2 = 0;
+
+    // 遍历 `schedule_items`，生成机器上的依赖关系
+    for (const auto &schedule_item : schedule_items) {
+        for (size_t i = 0; i < schedule_item.schedule_process.size(); i++) {
+            int job_id = schedule_item.schedule_process[i].job_id;
+            int process_id = schedule_item.schedule_process[i].process_id;
+
+            // 找到 `index1`
+            for (size_t k = 0; k < processList.size(); k++) {
+                if (processList[k] == std::to_string(job_id) + "-" + std::to_string(process_id)) {
+                    index1 = k;
                     break;
                 }
             }
-            if (i==0 && process_id == 0) {
+
+            // 连接 `start -> first process`
+            if (i == 0) {
                 graph[0][index1] = 0;
             }
-            if(i == schedule_item.schedule_process.size()-1) {
-                graph[index1][processCount-1] = GetProcessTime(jobs, schedule_item.machine_id, job_id, process_id);
+
+            // 连接 `last process -> end`
+            if (i == schedule_item.schedule_process.size() - 1) {
+                graph[index1][processCount - 1] = GetProcessTime(jobs, schedule_item.machine_id, job_id, process_id);
             }
-            if (i!=0){
-                // 在processList中查找第i-1项的job_id-process_id的索引
-                job_id = schedule_item.schedule_process[i-1].job_id;
-                process_id = schedule_item.schedule_process[i-1].process_id;
-                for (int i1 = 0; i1<processList.size(); i1++) {
-                    if (processList[i1] == std::to_string(job_id) + "-" + std::to_string(process_id)) {
-                        index2 = i1;
+
+            // 连接 `previous process -> current process`
+            if (i > 0) {
+                int prev_job_id = schedule_item.schedule_process[i - 1].job_id;
+                int prev_process_id = schedule_item.schedule_process[i - 1].process_id;
+
+                for (size_t k = 0; k < processList.size(); k++) {
+                    if (processList[k] == std::to_string(prev_job_id) + "-" + std::to_string(prev_process_id)) {
+                        index2 = k;
                         break;
                     }
                 }
+
                 graph[index2][index1] = GetProcessTime(jobs, schedule_item.machine_id, job_id, process_id);
             }
         }
     }
 
-    // 遍历待加工工件列表jobList,按照工件的工序，添加工序之间的关系
-    for (auto job: jobList) {
-        for (auto jobItem: jobs) {
-            if (jobItem.get_job_name() == job.substr(0, job.find('-'))) {
-                const int jobProcessCount = jobItem.get_process_count();
-                job_id = jobItem.get_job_id();
-                for (int i =0;i<jobProcessCount-1;i++) {
-                    process_id = i;
-                    for (int i1 = 0; i1<processList.size(); i1++) {
-                        if (processList[i1] == std::to_string(job_id) + "-" + std::to_string(process_id)) {
-                            index1 = i1;
-                            break;
-                        }
-                    }
-                    process_id = i+1;
-                    for (int i1 = 0; i1<processList.size(); i1++) {
-                        if (processList[i1] == std::to_string(job_id) + "-" + std::to_string(process_id)) {
-                            index2 = i1;
-                            break;
-                        }
-                    }
-                    // 查找job_id, process_id-1对应的工序在哪个机器上运行
-                    int temp_machine_id = -1;
-                    for (auto schedule_item: schedule_items) {
-                        for (auto [job_id1, process_id1]: schedule_item.schedule_process) {
-                            if (job_id1 == job_id && process_id1 == process_id-1) {
-                                temp_machine_id = schedule_item.machine_id;
-                                break;
-                            }
-                        }
-                    }
-                    graph[index1][index2] = GetProcessTime(jobs, temp_machine_id, job_id, process_id-1);
-                }
+    // 遍历 `jobList`，添加工序之间的约束
+    for (const auto &job : jobList) {
+        for (const auto &jobItem : jobs) {
+            if (jobItem.get_job_name() == job) {
+                int jobProcessCount = jobItem.get_process_count();
+                int job_id = jobItem.get_job_id();
 
+                for (int i = 0; i < jobProcessCount - 1; i++) {
+                    int process_id1 = i;
+                    int process_id2 = i + 1;
+
+                    for (size_t k = 0; k < processList.size(); k++) {
+                        if (processList[k] == std::to_string(job_id) + "-" + std::to_string(process_id1)) {
+                            index1 = k;
+                        }
+                        if (processList[k] == std::to_string(job_id) + "-" + std::to_string(process_id2)) {
+                            index2 = k;
+                        }
+                    }
+
+                    graph[index1][index2] = GetProcessTime(jobs, job_id, job_id, process_id1);
+                }
             }
         }
     }
+
+    // **检查是否形成环**
+//    if (hasCycle(graph)) {
+//        throw std::runtime_error("Error: Graph contains a cycle and cannot be topologically sorted.");
+//    }
+
+    // 更新 `schedule`
     if (flag) {
         schedule.set_graph(graph);
         schedule.set_processList(processList);
         CalculateTotalTime(schedule);
     }
+
     return graph;
 }
+
 
 int CalculateTotalTime(Schedule &schedule) {
     int ans = 0;
@@ -320,5 +331,69 @@ bool CheckStopFlag(const int &search_time, const int &count, int repeat_count) {
     }
     return true;
 }
+
+
+void GetMachineIdAndItemIdByProcess(const std::vector<Schedule_item> &schedule_items,
+                                    const std::string &process, int type, int &x, int &y) {
+    for (size_t i = 0; i < schedule_items.size(); i++) {
+        for (size_t j = 0; j < schedule_items[i].process_count; j++) {
+            if (type == 1) {
+                if (process == "job" + std::to_string(schedule_items[i].schedule_process[j].job_id) +
+                               "-" + std::to_string(schedule_items[i].schedule_process[j].process_id)) {
+                    x = i;
+                    y = j;
+                    return;
+                }
+            } else if (type == 2) {
+                if (process == std::to_string(schedule_items[i].schedule_process[j].job_id) +
+                               "-" + std::to_string(schedule_items[i].schedule_process[j].process_id)) {
+                    x = i;
+                    y = j;
+                    return;
+                }
+            }
+        }
+    }
+}
+
+bool hasCycle(const std::vector<std::vector<int>> &adjMatrix) {
+    size_t n = adjMatrix.size();
+    std::vector<int> inDegree(n, 0);
+
+    for (size_t i = 0; i < n; i++) {
+        for (size_t j = 0; j < n; j++) {
+            if (adjMatrix[i][j] != -1) {
+                inDegree[j]++;
+            }
+        }
+    }
+
+    std::queue<int> q;
+    for (size_t i = 0; i < n; i++) {
+        if (inDegree[i] == 0) {
+            q.push(i);
+        }
+    }
+
+    int visitedCount = 0;
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        visitedCount++;
+
+        for (size_t j = 0; j < n; j++) {
+            if (adjMatrix[node][j] != -1) {
+                inDegree[j]--;
+                if (inDegree[j] == 0) {
+                    q.push(j);
+                }
+            }
+        }
+    }
+
+    return visitedCount != n;
+}
+
+
 
 

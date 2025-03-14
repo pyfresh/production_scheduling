@@ -36,5 +36,12 @@ int CalculateTotalTime(Schedule &schedule);
 // 设置停止标志，当搜索时间超过指定时间或搜索次数超过指定次数时，停止搜索
 bool CheckStopFlag(const int &search_time, const int &count, int repeat_count);
 
+void GetMachineIdAndItemIdByProcess(const std::vector<Schedule_item> &schedule_items,
+                                    const std::string &process, int type, int &x, int &y);
+
+bool hasCycle(const std::vector<std::vector<int>> &adjMatrix);
+
+int GetItemIndex(const Schedule &schedule, int job_id, int process_id);
+
 // std::vector<std::vector<std::string>> ScheduleToProcessList(const Schedule &schedule);
 #endif //DATAPROC_H
