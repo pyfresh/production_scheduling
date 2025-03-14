@@ -15,7 +15,9 @@ Job::Job() {
 int Job::get_job_id() const {return job_id;}
 std::string Job::get_job_name() const {return job_name;}
 int Job::get_process_count() const {return process_count;}
-std::vector<Job_process> Job::get_job_process() {return job_process;}
+const std::vector<Job_process>& Job::get_job_process() const {
+    return job_process;
+}
 void Job::set_job_id(const int job_id) {this->job_id = job_id;}
 void Job::set_job_name(const std::string &job_name) {this->job_name = job_name;}
 void Job::set_process_count(const int process_count) {this->process_count = process_count;}

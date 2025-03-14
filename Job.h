@@ -29,7 +29,7 @@ public:
     int get_job_id() const;
     std::string get_job_name() const;
     int get_process_count() const;
-    std::vector<Job_process> get_job_process();
+    const std::vector<Job_process>& get_job_process() const;
     void set_job_id(int job_id);
     void set_job_name(const std::string &job_name);
     void set_process_count(int process_count);

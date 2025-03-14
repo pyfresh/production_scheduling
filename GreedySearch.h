@@ -5,9 +5,17 @@
 #ifndef GREEDYSEARCH_H
 #define GREEDYSEARCH_H
 #include <vector>
-
+#include <set>
+#include <unordered_set>
+#include <sstream>
 #include "Job.h"
 #include "Schedule.h"
+
+//禁忌搜索
+extern std::unordered_set<std::string> tabu_list;
+void addTabu(const Schedule &schedule, int tabu_list_length);
+bool isTabu(const Schedule &schedule);
+
 
 // 贪心搜索
 Schedule GreedySearch(const Schedule &schedule, const std::vector<Job> &jobs, const std::vector<std::string> &jobList, int iter_count);
@@ -47,4 +55,10 @@ int GetProcessCountByMachineId(const Schedule &schedule, const int machine_id);
 
 // 根据工件名称查找工件
 Job SelectJobByJobId(const std::vector<Job> &jobs, const int job_id);
+
+//扰动搜索
+Schedule PerturbationSearch(const Schedule &schedule, const std::vector<Job> &jobs,
+                            const std::vector<std::string> &jobList);
+
+
 #endif //GREEDYSEARCH_H

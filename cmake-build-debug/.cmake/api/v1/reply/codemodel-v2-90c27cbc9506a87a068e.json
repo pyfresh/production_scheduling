@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "E:/CLion/project/production_scheduling/cmake-build-debug",
-		"source" : "E:/CLion/project/production_scheduling"
+		"build" : "C:/Users/Litbug/Desktop/production_scheduling/cmake-build-debug",
+		"source" : "C:/Users/Litbug/Desktop/production_scheduling"
 	},
 	"version" : 
 	{
