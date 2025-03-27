@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/production_scheduling.dir/DataProc.cpp.obj.d"
   "CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj"
   "CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj.d"
+  "CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj"
+  "CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj.d"
   "CMakeFiles/production_scheduling.dir/Job.cpp.obj"
   "CMakeFiles/production_scheduling.dir/Job.cpp.obj.d"
   "CMakeFiles/production_scheduling.dir/Machine.cpp.obj"

@@ -152,19 +152,19 @@ CMakeFiles/production_scheduling.dir/DataProc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/production_scheduling.dir/DataProc.cpp.s"
 	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Litbug\Desktop\production_scheduling\DataProc.cpp -o CMakeFiles\production_scheduling.dir\DataProc.cpp.s
 
-CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: CMakeFiles/production_scheduling.dir/flags.make
-CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: C:/Users/Litbug/Desktop/production_scheduling/GreedySearch.cpp
-CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: CMakeFiles/production_scheduling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Litbug\Desktop\production_scheduling\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj"
-	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj -MF CMakeFiles\production_scheduling.dir\GreedySearch.cpp.obj.d -o CMakeFiles\production_scheduling.dir\GreedySearch.cpp.obj -c C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp
+CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj: CMakeFiles/production_scheduling.dir/flags.make
+CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj: C:/Users/Litbug/Desktop/production_scheduling/ImprovedSearch.cpp
+CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj: CMakeFiles/production_scheduling.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Litbug\Desktop\production_scheduling\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj -MF CMakeFiles\production_scheduling.dir\ImprovedSearch.cpp.obj.d -o CMakeFiles\production_scheduling.dir\ImprovedSearch.cpp.obj -c C:\Users\Litbug\Desktop\production_scheduling\ImprovedSearch.cpp
 
-CMakeFiles/production_scheduling.dir/GreedySearch.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/production_scheduling.dir/GreedySearch.cpp.i"
-	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp > CMakeFiles\production_scheduling.dir\GreedySearch.cpp.i
+CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.i"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Litbug\Desktop\production_scheduling\ImprovedSearch.cpp > CMakeFiles\production_scheduling.dir\ImprovedSearch.cpp.i
 
-CMakeFiles/production_scheduling.dir/GreedySearch.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/production_scheduling.dir/GreedySearch.cpp.s"
-	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp -o CMakeFiles\production_scheduling.dir\GreedySearch.cpp.s
+CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.s"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Litbug\Desktop\production_scheduling\ImprovedSearch.cpp -o CMakeFiles\production_scheduling.dir\ImprovedSearch.cpp.s
 
 CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj: CMakeFiles/production_scheduling.dir/flags.make
 CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj: C:/Users/Litbug/Desktop/production_scheduling/RandomSearch.cpp
@@ -180,6 +180,20 @@ CMakeFiles/production_scheduling.dir/RandomSearch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/production_scheduling.dir/RandomSearch.cpp.s"
 	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Litbug\Desktop\production_scheduling\RandomSearch.cpp -o CMakeFiles\production_scheduling.dir\RandomSearch.cpp.s
 
+CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: CMakeFiles/production_scheduling.dir/flags.make
+CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: C:/Users/Litbug/Desktop/production_scheduling/GreedySearch.cpp
+CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj: CMakeFiles/production_scheduling.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Litbug\Desktop\production_scheduling\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj -MF CMakeFiles\production_scheduling.dir\GreedySearch.cpp.obj.d -o CMakeFiles\production_scheduling.dir\GreedySearch.cpp.obj -c C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp
+
+CMakeFiles/production_scheduling.dir/GreedySearch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/production_scheduling.dir/GreedySearch.cpp.i"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp > CMakeFiles\production_scheduling.dir\GreedySearch.cpp.i
+
+CMakeFiles/production_scheduling.dir/GreedySearch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/production_scheduling.dir/GreedySearch.cpp.s"
+	"D:\CLion 2024.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Litbug\Desktop\production_scheduling\GreedySearch.cpp -o CMakeFiles\production_scheduling.dir\GreedySearch.cpp.s
+
 # Object files for target production_scheduling
 production_scheduling_OBJECTS = \
 "CMakeFiles/production_scheduling.dir/main.cpp.obj" \
@@ -188,8 +202,9 @@ production_scheduling_OBJECTS = \
 "CMakeFiles/production_scheduling.dir/Machine.cpp.obj" \
 "CMakeFiles/production_scheduling.dir/Schedule.cpp.obj" \
 "CMakeFiles/production_scheduling.dir/DataProc.cpp.obj" \
-"CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj" \
-"CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj"
+"CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj" \
+"CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj" \
+"CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj"
 
 # External object files for target production_scheduling
 production_scheduling_EXTERNAL_OBJECTS =
@@ -200,13 +215,14 @@ production_scheduling.exe: CMakeFiles/production_scheduling.dir/Job.cpp.obj
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/Machine.cpp.obj
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/Schedule.cpp.obj
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/DataProc.cpp.obj
-production_scheduling.exe: CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj
+production_scheduling.exe: CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/RandomSearch.cpp.obj
+production_scheduling.exe: CMakeFiles/production_scheduling.dir/GreedySearch.cpp.obj
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/build.make
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/linkLibs.rsp
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/objects1.rsp
 production_scheduling.exe: CMakeFiles/production_scheduling.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Litbug\Desktop\production_scheduling\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable production_scheduling.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Litbug\Desktop\production_scheduling\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable production_scheduling.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\production_scheduling.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

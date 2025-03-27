@@ -14,7 +14,9 @@ add_executable(production_scheduling main.cpp
         Schedule.h
         DataProc.cpp
         DataProc.h
-        GreedySearch.cpp
-        GreedySearch.h
+        ImprovedSearch.cpp
+        ImprovedSearch.h
         RandomSearch.cpp
-        RandomSearch.h)
+        RandomSearch.h
+        GreedySearch.cpp
+        GreedySearch.h)

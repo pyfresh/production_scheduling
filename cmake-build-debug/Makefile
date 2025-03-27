@@ -176,6 +176,30 @@ GreedySearch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\production_scheduling.dir\build.make CMakeFiles/production_scheduling.dir/GreedySearch.cpp.s
 .PHONY : GreedySearch.cpp.s
 
+ImprovedSearch.obj: ImprovedSearch.cpp.obj
+.PHONY : ImprovedSearch.obj
+
+# target to build an object file
+ImprovedSearch.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\production_scheduling.dir\build.make CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.obj
+.PHONY : ImprovedSearch.cpp.obj
+
+ImprovedSearch.i: ImprovedSearch.cpp.i
+.PHONY : ImprovedSearch.i
+
+# target to preprocess a source file
+ImprovedSearch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\production_scheduling.dir\build.make CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.i
+.PHONY : ImprovedSearch.cpp.i
+
+ImprovedSearch.s: ImprovedSearch.cpp.s
+.PHONY : ImprovedSearch.s
+
+# target to generate assembly for a file
+ImprovedSearch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\production_scheduling.dir\build.make CMakeFiles/production_scheduling.dir/ImprovedSearch.cpp.s
+.PHONY : ImprovedSearch.cpp.s
+
 Job.obj: Job.cpp.obj
 .PHONY : Job.obj
 
@@ -335,6 +359,9 @@ help:
 	@echo ... GreedySearch.obj
 	@echo ... GreedySearch.i
 	@echo ... GreedySearch.s
+	@echo ... ImprovedSearch.obj
+	@echo ... ImprovedSearch.i
+	@echo ... ImprovedSearch.s
 	@echo ... Job.obj
 	@echo ... Job.i
 	@echo ... Job.s
